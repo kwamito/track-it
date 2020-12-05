@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap')
+
+$prime-color: red
+$hover-color: green
+$text-color: white
+.dark-card
+    background-color: #333333
+
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+$bg-color: tint(grey,90%)
+body
+    background-color: $bg-color
+.dark-theme
+    background-color: #212121
+    .dark-card
+        background-color: #333333
+
+.nav
+    padding: 20px
+    position: fixed
+    height: 100%
+    width: 170px
+    background-color: white
+    overflow-x: hidden
+    overflow-y: scroll
+    padding-bottom: 40px
+    top: 0
+    bottom: 0
+    transition: all
+    transition-duration: 0.2s
+    transition-delay: 0.2s
+    display: block
+    scrollbar-width: none
+    -ms-overflow-style: none
+    z-index: 1010
+    border-right: 5px
+    box-shadow: 1px 1px 1px 1px tint(grey,60%)
+    border-right-color: tint(grey,60%)
+    font-family: 'Lato', sans-serif
+    &::-webkit-scrollbar
+        display: none
+
+    .nav-items
+        text-decoration: none
+
+        .sec-links
+            padding: 10px
+            display: block
+            padding: 10px
+            border-radius: 6px
+            text-decoration: none
+
+            &:hover
+                background-color: tint(purple,30%)
+
+            .elements
+                display: flex
+                flex-direction: row
+                align-items: center
+                text-align: center
+                color: black
+                white-space: nowrap
+
+                \:global(.icon)
+                    margin-left: 10px
+                    margin-right: 10px
+                    align-items: center
+
+    .head
+        font: bold
+        font-size: 20px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-content: center
+        padding: 15px
+        padding-bottom: 10px
+        padding-top: 10px
+        text-align: center
+        .icon-chart
+            padding: 10px
+            color: tomato
+
+    .ruler
+        width: 100%
+        margin-top: 19px
+        //box-shadow: 5px 5px black
+    .insights
+
+        h3
+            text-align: center
+        .elements
+            display: flex
+            flex-direction: row
+            align-items: center
+            text-align: center
+            color: black
+            white-space: nowrap
+            text-decoration: none
+
+            .icon
+                margin-left: 10px
+                margin-right: 10px
+                align-items: center
+
+        .container
+            margin-bottom: 35px
+            .anchor
+                display: block
+                padding: 10px
+                border-radius: 6px
+                text-decoration: none
+                &:hover
+                    background-color: tint(blue,50%)
+
+#notifications
+    height: 2px
+    width: 2px
+    border-radius: 100%
+    padding: 10px
+    background-color: tint(orange,20%)
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-left: 10px
+
+.close-button
+    border-radius: 100%
+    height: 30px
+    width: 30px
+    background-color: tint(red,50%)
+    border: none
+    &:hover
+        box-shadow: 1px 1px 1px 1px tint(grey,50%)
+    .close
+        font-size: 20px
+
+.rings
+    display: flex
+    flex-direction: row
+    justify-content: center
+    margin-left: 40px
+    margin-top: 20px
+
+.percent1, svg, circle
+    width: 200px
+    height: 200px
+
+circle
+    position: absolute
+    fill: none
+    stroke-width: 10
+    transform: translate(10px,10px)
+    stroke-dasharray: 440
+    stroke-linecap: round
+    &:nth-child(1)
+        stroke-dashoffset: 0
+        stroke: #424242
+        animation: percent 1.8s linear
+
+.percent1 circle
+    &:nth-child(2)
+        stroke-dashoffset: calc(440 - (440 * 55) / 100)
+        stroke: orange
+        animation: percent 1.8s linear
+
+.number
+    bottom: 160px
+    right: -50px
+    color: #fff
+    position: relative
+    margin-left: 10px
+
+.percent1
+    span
+        color: gold
+
+@keyframes percent
+    0%
+        stroke-width: 0
+        stroke-dashoffset: 0
+
+$breakpoint-tablet: 500px
+
+@media screen and ( max-width:500px  )
+
+    .rings
+        margin-left: 50px
+
+    .hamburger
+        display: block
+
+    .nav
+        width: 0
+        padding: 0
+        box-shadow: none
+
+    .whole
+        margin-left: 0
+
+@media screen and ( min-width: 960px  )
+    .close-button
+        display: none
+    .hambu
+        display: none
+
+.theme-container
+    margin-bottom: 35px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.dark
+    border-radius: 5px
+
+    outline: none
+    border: none
+    padding: 5px
+    &:hover
+        box-shadow: 1px 1px 1px 1px tint(grey,50%)
+
+.dark-card
+    background-color: #333333

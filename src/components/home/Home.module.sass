@@ -1,0 +1,56 @@
+.background
+    background-color: grey
+    width: 20%
+    border-radius: 20px
+
+.completion
+    background-color: yellow
+    padding: 2px
+    width: 50%
+
+.main
+    margin-left: 210px
+.cards
+    display: flex
+    order: 3
+    overflow-x: scroll
+    margin-top: 5px
+    margin-right: 10px
+    padding: 5px
+    padding-right: 10px
+    &::-webkit-scrollbar
+        display: none
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+@media screen and ( max-width:500px  )
+    .main
+        margin-left: 0
+    // .cards
+    //     display: flex
+    //     order: 3
+    //     flex-wrap: wrap
+    //     justify-content: space-around
+    //     margin: auto
+    //     margin-left: auto
+    .cards
+        justify-content: space-evenly
+
+.heads
+    display: flex
+    justify-content: space-between
+
+.status
+    margin-left: 20px
+
+.see-all
+    float: right
+    margin-right: 40px
+    text-align: center
+    margin-top: 20px
+    text-decoration: none
+    color: tint(green,30%)
+    white-space: nowrap
+
+@media screen and ( min-width:900px  )
+    .cards
+        margin-right: 25px

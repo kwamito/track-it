@@ -1,0 +1,89 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+body
+    font-family: 'Lato', sans-serif
+
+.card
+    padding: 20px
+    background-color: white
+    height: 150px
+    width: 200px
+    border-radius: 5px
+    display: flex
+    flex-direction: column
+    order: 5
+    align-self: flex-start
+    p
+        color: tint(grey,10%)
+        font: bolder
+
+.title
+    font-size: 20px
+    font-weight: bold
+.white-title
+    color: white
+
+.menu
+    float: right
+    color: tint(grey,50%)
+
+.time
+    background-color: white
+    width: 100px
+    background-color: tint(purple,80%)
+    border-radius: 3px
+    padding: 4px
+    color: tint(indigo,20%)
+    text-align: center
+    margin-top: 7px
+
+.bottom
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+.avatarContainer
+    display: flex
+    flex-direction: row
+
+.avatar
+    padding: 10px
+    background-color: tomato
+    border-radius: 100%
+    margin-left: -5px
+    height: 3px
+    width: 3px
+    box-shadow: 1px 1px 1px 1px tint(grey,40%)
+    &:nth-child(1)
+        background-position: center
+        background-size: cover
+        background-image: url('https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+    &:nth-child(2)
+        background-position: center
+        background-size: cover
+        background-image: url('https://images.pexels.com/photos/5064894/pexels-photo-5064894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')
+
+.second-group
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+.icons
+    color: tint(grey,50%)
+    margin-right: 10px
+
+.over
+    text-align: center
+
+.link-icon
+    color: tint(grey,0%)
+    transform: rotate(45deg)
+
+.share
+    display: flex
+    align-items: center
+@media screen and ( min-width:900px  )
+    .card
+        margin-left: 400px
