@@ -1,0 +1,169 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.project-card-body
+    padding: 20px
+    background-color: white
+    height: 330px
+    width: 310px
+    border-radius: 10px
+    margin-top: 20px
+.project-card-body-black
+    background-color: #1B1B1B
+
+.imp
+    display: flex
+    align-items: center
+
+.project-card-top
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+.project-logo
+    width: 15px
+    height: 15px
+    padding: 15px
+    padding-left: 10px
+    display: flex
+    //background-image: url(https://images.theconversation.com/files/93616/original/image-20150902-6700-t2axrz.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=600&h=600&fit=crop&dpr=1)
+    background-position: center
+    background-size: cover
+    border-radius: 10px
+    box-shadow: 1px 1px 1px 2px tint(grey,50%)
+
+.icon-no-show
+    width: 15px
+    height: 15px
+    padding: 15px
+    padding-left: 10px
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    background-color: tint(orange,70%)
+    border-radius: 10px
+    box-shadow: 1px 1px 1px 2px tint(orange,50%)
+
+.project-title
+    font-weight: bold
+    margin-left: 20px
+
+.star-icon
+    color: orange
+    margin-right: 10px
+
+.progress-priority
+    display: flex
+    justify-content: space-between
+    margin-top: 30px
+
+.select-progress
+    padding: 10px
+    background-color: tint(blue,90%)
+    border: none
+    border-radius: 5px
+    outline: none
+    margin-right: 3px
+.high
+    background-color: white
+    border: 2px solid tint(red,50%)
+    outline: none
+    border-radius: 5px
+    color: tomato
+    &:hover
+        background-color: tint(tomato,50%)
+.low
+    color: blue
+    background-color: white
+    border: 2px solid tint(blue,50%)
+    outline: none
+    border-radius: 5px
+    &:hover
+        background-color: tint(blue,50%)
+
+.medium
+    color: green
+    background-color: white
+    border: 2px solid tint(green,50%)
+    outline: none
+    border-radius: 5px
+    &:hover
+        background-color: tint(green,50%)
+
+.tasks-done
+    margin-top: 20px
+
+.progress-group
+    margin-top: 20px
+
+.tasks-completed-back
+    background-color: tint(grey,50%)
+    border-radius: 10px
+
+.tasks-completed
+    background-color: purple
+    padding: 3px
+    border-radius: 10px
+
+    transition: all
+    animation: progress 1.5s linear
+
+.tag-group
+    margin-top: 20px
+
+.tag
+    width: 30%
+    padding: 6px
+    color: green
+    border: 1px solid green
+    border-radius: 4px
+    background-color: tint(green,95%)
+
+.project-contributors-avatars
+    display: flex
+    margin-top: 20px
+
+.contributor-avatar
+    background-position: center
+    background-size: cover
+    background-image: url('https://images.pexels.com/photos/4906334/pexels-photo-4906334.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+    padding: 10px
+    height: 10px
+    width: 10px
+    border-radius: 100%
+    box-shadow: 1px 1px 1px 1px tint(grey,50%)
+    margin-left: -5px
+.more-avatar
+    padding: 10px
+    height: 10px
+    width: 10px
+    border-radius: 100%
+    box-shadow: 1px 1px 1px 1px tint(grey,50%)
+    margin-left: -5px
+    text-align: center
+    display: flex
+    align-items: center
+    border: 1px solid tint(grey,30%)
+
+.project-due-date
+    margin-top: 20px
+
+.due-date
+    padding: 5px
+    border: none
+    background-color: tint(orange,80%)
+    width: 100%
+    font-family: sans-serif
+    text-align: center
+    color: tint(orange,10%)
+    font-weight: bold
+    white-space: nowrap
+    border-radius: 6px
+
+@keyframes progress
+    0%
+        width: 0%
+    // 100%
+    //     width: 50%

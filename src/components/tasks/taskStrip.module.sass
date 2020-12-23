@@ -1,0 +1,68 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.strip-body
+    padding: 10px
+    background-color: white
+    height: 30px
+    border-radius: 5px
+    display: flex
+    color: black
+    align-items: center
+    justify-content: space-between
+    z-index: 1010
+
+.clock
+    color: orange
+    animation: rot 1.0s linear infinite
+
+.task-name
+    margin-left: 10px
+
+.starts, .ends
+    padding: 4px
+    border-radius: 5px
+
+.starts
+    border: 1px solid orange
+    &:hover
+        background-color: orange
+
+.ends
+    border: 1px solid red
+    &:hover
+        background-color: red
+
+.not-set
+    color: red
+
+    border-radius: 100%
+
+    //animation: rot 1.0s linear infinite
+
+.content
+    padding: 0 18px
+    height: 0
+    overflow: hidden
+    transition: all
+    transition-delay: .4s
+    transition-duration: .3s
+    background-color: tint(black,90%)
+    margin-top: -3px
+    color: black
+    z-index: -4
+    border-bottom-right-radius: 5px
+    border-bottom-left-radius: 5px
+    overflow-y: scroll
+@keyframes rot
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+.detailed-name
+    text-align: center
+
+.description
+    margin-top: 20px
+    margin-bottom: 20px

@@ -12,7 +12,10 @@ function Home() {
         <div>
             <SideBar />
             <div className={style['main']}>
-                <NavBar />
+                <div className={style['home-nav-container']}>
+                    <NavBar />
+                </div>
+
                 <div className={style['heads']}>
                     <h3 className={style['status']}>Pending</h3>
                     <Link to="#" className={style['see-all']}>See All</Link>

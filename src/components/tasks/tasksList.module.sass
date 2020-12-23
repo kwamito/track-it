@@ -1,0 +1,93 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.main
+    margin-left: 210px
+    margin-bottom: 50px
+
+.task-container
+    display: grid
+
+    margin-top: 30px
+
+.add-task-button
+    display: flex
+    flex-direction: row-reverse
+    margin-right: 50px
+    margin-top: 10px
+
+.tasks-cover
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-left: 1%
+    //margin-right: 2%
+.button
+    width: 50px
+    border-radius: 5px
+
+    &:hover
+        background-color: black
+        color: white
+        border: none
+        padding: 2px
+
+@media screen and ( max-width: 500px )
+    .main
+        margin-left: 0
+
+    .tasks-nav
+        display: none
+
+    .tasks-cover
+        margin-top: 50px
+        margin-left: 0
+
+    .task-container
+        margin-top: 10px
+
+.create-modal-container
+    z-index: 4000
+    position: fixed
+    display: flex
+    justify-content: center
+    left: 0
+    top: 0
+
+    height: 100%
+    width: 100%
+
+    display: none
+
+.overlay
+    z-index: 1011
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: black
+    opacity: 50%
+    display: none
+
+.cancel
+    float: right
+    margin-right: 20%
+    z-index: 1012
+    position: fixed
+    display: flex
+    justify-content: end
+    flex-direction: row-reverse
+    top: 15%
+    left: 50%
+    height: 20%
+    width: 40%
+    color: red
+    font-size: 30px
+
+svg
+    stroke-dasharray: 300
+    transition: all .8s ease-in-out
+
+//stop-color="#00bc9b"
+    //stop-color="#5eaefd"

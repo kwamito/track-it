@@ -1,0 +1,76 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.container
+    display: flex
+    justify-content: center
+    transition: all
+    margin-top: 50px
+    z-index: 1010
+    color: black
+
+.close-modal
+    float: right
+
+.modal
+    padding: 15px
+    margin-bottom: 20px
+    border-radius: 10px
+    background-color: white
+    width: 350px
+    height: 380px
+    overflow-x: hidden
+    overflow-y: scroll
+    z-index: 1
+
+.modal-header
+    display: flex
+    justify-content: space-between
+    margin-top: 20px
+
+.add-member-icon
+    margin-top: 5%
+
+.contributor
+    padding: 5px
+    border: 2px solid black
+    border-radius: 6px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 4px
+    border: 2px solid black
+    height: 30px
+    border-radius: 5px
+    margin-top: 10px
+
+.contributor-avatar
+    background-color: orange
+    height: 15px
+    width: 15px
+    padding: 8px
+    border-radius: 100%
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: center
+
+.contributor-profile-image
+    background-position: center
+    background-size: cover
+    padding: 8px
+    height: 15px
+    width: 15px
+    border-radius: 100%
+
+.add-contributor-button
+    border: none
+    background-color: tint(green,20%)
+    padding-left: 5px
+    padding-right: 5px
+    padding: 6px
+    width: 100%
+    border-radius: 3px
+
+.active
+    background-color: red

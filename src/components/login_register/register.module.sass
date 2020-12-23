@@ -1,0 +1,117 @@
+.text-group
+    display: flex
+    justify-content: center
+    flex-direction: column
+    text-align: center
+
+.form-container-register
+    display: flex
+    margin-top: 40px
+    height: 100%
+    justify-content: space-around
+
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.login-form
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.register-inputs
+    padding: 15px
+    margin-top: 10px
+    margin-bottom: 10px
+    border-radius: 5px
+    border: none
+    box-shadow: 2px 2px 2px 2px tint(grey,80%)
+
+.register-inputs::placeholder
+    font-size: 15px
+    color: tint(black,30%)
+
+.text-group
+    font-size: 20px
+    font-weight: bold
+
+.register-pro
+    padding: 15px
+    width: 100%
+    text-align: center
+    width: 0
+    padding: 0
+
+.register-button
+    background-color: tint(black,20%)
+    padding: 15px
+    margin-left: 20%
+    margin-right: 20%
+    width: 100%
+    margin-top: 20px
+    border: none
+    border-radius: 5px
+    font-weight: bolder
+    font-size: 20px
+    color: white
+    text-align: center
+    box-shadow: 1px 1px 1px 1px tint(grey,50%)
+    &:hover
+        background-color: tint(black,10%)
+
+@media screen and ( max-width: 940px )
+    button
+        width: auto
+
+.actual-form-content
+    margin-left: 60px
+    left: 0
+    margin-top: 3%
+
+.info-container
+    background-image: url('/static/svgs/sign_in.svg')
+    padding: 10px
+    width: 45%
+
+    //height: 2000px
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+.register-back
+    background-image: url('/static/svgs/login_back.svg')
+    background-repeat: no-repeat
+
+@media screen and ( max-width: 995px )
+    .info-container
+        display: none
+
+    .actual-form-content
+        margin-left: 0
+
+    .form-container-register
+        display: block
+        justify-content: center\
+
+    .register-button
+        width: 200px
+    .register-inputs
+        width: 70%
+        padding: 20px
+
+@media screen and ( min-width: 1500px )
+    .actual-form-content
+        transform: scale(1.5)
+        margin-top: 5%
+
+@media screen and ( min-width: 3500px )
+    .register-inputs
+        width: 1000px
+        height: 50px
+
+    .info-container
+        background-size: auto
+        width: 20%
+
+    .form-container-register
+        margin-top: 4%
