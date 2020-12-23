@@ -11,9 +11,11 @@ body
     width: 200px
     border-radius: 5px
     display: flex
+    color: black
     flex-direction: column
     order: 5
     align-self: flex-start
+    margin-bottom: 20px
     p
         color: tint(grey,10%)
         font: bolder
@@ -30,13 +32,14 @@ body
 
 .time
     background-color: white
-    width: 100px
+    width: 100%
     background-color: tint(purple,80%)
     border-radius: 3px
     padding: 4px
     color: tint(indigo,20%)
     text-align: center
     margin-top: 7px
+    white-space: nowrap
 
 .bottom
     display: flex
@@ -78,12 +81,51 @@ body
     text-align: center
 
 .link-icon
-    color: tint(grey,0%)
-    transform: rotate(45deg)
+    color: tint(green,0%)
+    &:nth-child(2)
+        color: green
 
 .share
     display: flex
     align-items: center
-@media screen and ( min-width:900px  )
+// @media screen and ( min-width:900px  )
+//     .card
+//         margin-left: 400px
+
+@media screen and ( max-width: 500px )
     .card
-        margin-left: 400px
+        margin-left: 10px
+
+.tooltip
+    position: relative
+    display: inline-block
+
+.tooltip .tooltip-text
+    visibility: hidden
+    width: 120px
+    background-color: black
+    color: white
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 150%
+    left: 50%
+    margin-left: -60px
+
+.tooltip .tooltip-text
+    &::after
+        content: ''
+        position: absolute
+        top: 100%
+        left: 50%
+        margin-left: -5px
+        border-width: 5px
+        border-style: solid
+        border-color: black transparent transparent transparent
+
+.tooltip
+    &:hover
+        .tooltip-text
+            visibility: visible

@@ -8,17 +8,13 @@ $text-color: white
 
 @function tint($color,$percentage)
     @return mix(white,$color,$percentage)
-
 $bg-color: tint(grey,90%)
-$text-color-light: white
-$text-color-dark: black
-.dark-body
-    background-color: #212121
 body
     background-color: $bg-color
-
-    // .dark-card
-    //     background-color: #333333
+.dark-theme
+    background-color: #212121
+    .dark-card
+        background-color: #333333
 
 .nav
     padding: 20px
@@ -28,7 +24,6 @@ body
     background-color: white
     overflow-x: hidden
     overflow-y: scroll
-
     padding-bottom: 40px
     top: 0
     bottom: 0
@@ -64,7 +59,6 @@ body
                 flex-direction: row
                 align-items: center
                 text-align: center
-
                 white-space: nowrap
 
                 \:global(.icon)
@@ -92,14 +86,15 @@ body
         margin-top: 19px
         //box-shadow: 5px 5px black
     .insights
-        margin-bottom: 20px
+
         h3
             text-align: center
-        .insight-elements
+        .elements
             display: flex
             flex-direction: row
             align-items: center
             text-align: center
+
             white-space: nowrap
             text-decoration: none
 
@@ -109,7 +104,7 @@ body
                 align-items: center
 
         .container
-            margin-bottom: 20px
+            margin-bottom: 35px
             .anchor
                 display: block
                 padding: 10px
@@ -134,6 +129,8 @@ body
     height: 30px
     width: 30px
     background-color: tint(red,50%)
+    margin-top: 20px
+    margin-left: 10px
     border: none
     &:hover
         box-shadow: 1px 1px 1px 1px tint(grey,50%)
@@ -208,9 +205,13 @@ $breakpoint-tablet: 500px
         display: none
     .hambu
         display: none
+    .nav
+        width: 170px
+        padding: 20px
+        box-shadow: 1px 1px 1px 1px tint(grey,60%)
 
 .theme-container
-    margin-bottom: 20px
+    margin-bottom: 35px
     display: flex
     align-items: center
     justify-content: center
@@ -230,17 +231,5 @@ $breakpoint-tablet: 500px
 .sec-links
     color: black
 
-.insight-elements
+.anchor
     color: black
-
-.logout-button
-    border: none
-    background-color: tomato
-    border-radius: 6px
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
-    margin-bottom: 50px
-
-@media screen and ( max-width: 500px )
-    .logout-button
-        width: 100%
-        margin-bottom: 100px

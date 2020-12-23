@@ -1,0 +1,48 @@
+.main
+    margin-left: 210px
+.project-nav-container-bottom
+    display: none
+.dark-body
+    background-color: #181923
+
+@media screen and ( max-width: 500px )
+    .main
+        margin-left: 0
+        margin-bottom: 20px
+    .projects-nav-container
+        display: none
+    .project-nav-container-bottom
+        display: block
+
+.projects
+    display: flex
+    justify-content: center
+
+@media screen and ( max-width:1249px  ) and (min-width:900px )
+    .cover
+        grid-template-columns: auto auto
+
+@media screen and ( min-width: 1250px )
+    .cover
+        display: grid
+        gap: 8px
+        grid-template-columns: auto auto auto
+        justify-content: center
+
+    .projects
+        transform: scale(.9)
+
+@media screen and ( min-width: 2000px )
+    .cover
+        display: grid
+        gap: 8px
+        grid-template-columns: auto auto auto auto
+        justify-content: center
+
+    .projects
+        transform: scale(.9)
+
+@media screen and ( min-width: 3000px )
+    .cover
+
+        grid-template-columns: auto auto auto auto auto auto

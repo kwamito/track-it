@@ -1,0 +1,178 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+svg
+    overflow: visible
+.dark-body
+    background-color: #181923
+
+.main
+    margin-left: 230px
+
+circle
+    stroke-width: 3
+.activity-meter
+    display: flex
+    justify-content: center
+
+@keyframes RingProgress
+    0%
+        stroke-dasharray: 0 100
+
+.ActivityRings
+    height: 20%
+    width: 20%
+    margin-top: 20px
+
+    .ring
+        transform-origin: 50%
+    .completed
+        animation: RingProgress 1s ease-in-out forwards
+        stroke-linecap: round
+
+    circle
+        fill: none
+
+$color-red: #c53f3d
+
+.ring1
+    transform: scale(1) rotate(-90deg)
+    .background
+        stroke: transparentize($color-red,0.8 )
+        stroke-linecap: round
+
+    .completed
+        stroke-linecap: round
+
+.ring2
+    transform: scale(0.75) rotate(-90deg)
+    .background
+        stroke: transparentize(green,0.8 )
+        stroke-linecap: round
+
+    .completed
+        stroke: #94d55a
+        background-image: linear-gradient(red, yellow)
+
+.ring3
+    transform: scale(0.5) rotate(-90deg)
+    .background
+        stroke: transparentize(blue,0.8 )
+        stroke-linecap: round
+
+    .completed
+        stroke: #70bed7
+
+.ring-container
+    display: flex
+    justify-content: center
+circle
+    box-shadow: 1px 1px 1px 1px tint(grey,50%)
+
+@media screen and ( max-width: 600px )
+    .main
+        margin-left: 0
+
+    .ActivityRings
+        width: 40%
+        height: 40%
+
+.ring1 .tooltiptext
+    visibility: hidden
+    width: 120px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    top: -5px
+    left: 105%
+    stroke-linecap: round
+
+.ring1
+    &:hover
+        .tooltiptext
+            visibility: visible
+
+.ruler-ring
+    width: 80%
+    margin-top: 30px
+    border: 1px solid tint(grey,60%)
+    box-shadow: 1px 1px 1px 1px tint(grey,60%)
+
+.feats
+    display: grid
+    order: 3
+    justify-content: space-evenly
+
+    margin-top: 20px
+    margin-right: 10px
+    grid-template-columns: auto auto auto
+    margin-bottom: 20px
+
+    //justify-content: space-around
+
+.activity-heading
+    text-align: center
+    margin-top: 50px
+    margin-bottom: 50px
+.project-detail-bottom-nav
+    display: none
+.features-text
+    text-align: center
+    margin-top: 50px
+    margin-bottom: 50px
+
+@media screen and ( max-width: 500px )
+    .feats
+        grid-template-columns: auto auto
+        transform: scale(.8)
+
+    .project-detail-nav
+        display: none
+    .project-detail-bottom-nav
+        display: flex
+        z-index: 4000
+    .features-text
+        margin-bottom: 10px
+
+.ss
+    width: 80%
+
+.recharts-surface
+    width: 80%
+
+@media screen and ( min-width: 1500px )
+    max-width: 60%
+
+.team-cards-container
+    display: grid
+    grid-template-columns: auto auto
+
+@media screen and ( max-width: 500px )
+    .team-cards-container
+        grid-template-columns: auto
+
+.overlay
+    z-index: 1010
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: black
+    opacity: 50%
+    display: none
+
+.add-member-container
+    z-index: 4000
+    position: fixed
+    left: 0
+    top: 0
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    display: none

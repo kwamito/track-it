@@ -1,0 +1,159 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.team-card-body
+    padding: 15px
+    height: 300px
+    width: 90%
+    border-radius: 5px
+    background-color: white
+    margin-bottom: 30px
+    color: black
+    overflow-y: scroll
+    &::-webkit-scrollbar
+        display: none
+
+.sub-head
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: bold
+    font-size: 17px
+
+.team-avatar
+    padding: 10px
+    height: 10px
+    width: 10px
+    border-radius: 100%
+    background-color: none
+    border: 1px solid orange
+    display: flex
+    align-items: center
+    text-align: center
+    margin-left: 10px
+    margin-right: 10px
+    justify-content: center
+
+.team-card-head
+    display: flex
+    justify-content: space-between
+
+.add-members-button-container
+    display: flex
+
+.add-member-button
+    padding-left: 10px
+    padding-right: 10px
+    background-color: tint(green,30%)
+    border: none
+    border-radius: 2px
+    width: 50px
+    box-shadow: 2px 2px 3px 3px tint(grey,50%)
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2)
+    outline: none
+    margin-right: 10px
+    &:hover
+        background-color: tint(green,20%)
+        box-shadow: 1px 1px 2px 2px tint(grey,50%)
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2)
+    &:focus
+        background-color: tint(green,20%)
+.add-task-button
+    background-color: orange
+    border: none
+    border-radius: 2px
+    padding-left: 10px
+    padding-right: 10px
+    box-shadow: 2px 2px 3px 3px tint(grey,50%)
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2)
+    outline: none
+    margin-right: 10px
+    &:hover
+        background-color: tint(orange,20%)
+        box-shadow: 1px 1px 2px 2px tint(grey,50%)
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2)
+    &:focus
+        background-color: tint(orange,20%)
+
+.team-name
+    opacity: 80%
+
+.second-head
+    display: flex
+    justify-content: space-between
+    margin-top: 10px
+
+.team-members
+    display: flex
+    flex-direction: column
+
+.avatar-name
+    display: flex
+    justify-content: center
+    align-items: center
+
+.member
+    display: flex
+    flex-direction: row
+    margin-top: 20px
+    margin-bottom: 2px
+    justify-content: space-between
+
+.no-members
+    font-weight: bold
+    font-size: 15px
+    text-align: center
+    margin-top: 20%
+
+.member-avatar
+    display: flex
+    align-items: center
+    padding: 15px
+    height: 10px
+    width: 10px
+    text-align: center
+    background-color: orange
+    border-radius: 100%
+    justify-content: center
+    font-weight: bold
+    margin-right: 10px
+
+.member-back
+    background-color: tint(grey,50%)
+    border-radius: 5px
+.member-progress
+    background-color: green
+    padding: 3px
+    border-radius: 5px
+    width: 50%
+
+.progress-group-flex
+    width: 40%
+    display: flex
+    align-items: center
+
+.progress-bars
+    width: 100%
+.tasks-done
+    font-weight: bold
+    margin-top: 6px
+//https://yt3.ggpht.com/ytc/AAUvwnhoa6jtz7ccGj30Al2Ha8t4ImDVW2U98STxoLXp=s88-c-k-c0x00ffffff-no-rj
+
+.more
+    position: sticky
+    text-align: center
+    height: 20px
+    bottom: 0
+    //width: 100%
+    //background-color: tint(grey,90%)
+    scroll-behavior: no-scroll
+
+@media screen and ( max-width: 500px )
+    .team-card-body
+        width: 90%
+        margin-left: 5px
+        margin-right: 10px
+
+.darko
+    background-color: black
+    color: white
