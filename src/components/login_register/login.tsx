@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import login_style from "./login.module.sass";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
     email: "",
     password: "",
   });
+  const history = useHistory() as any;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,13 +27,15 @@ function Login() {
         .post(api, credentailJSON)
         .then((response) => {
           window.localStorage.setItem("token", response.data);
+          history.push("/projects");
         })
         .catch((error) => {
-          alert(error.response.data);
+          alert(error);
           let box = document.getElementById("in") as HTMLInputElement;
           box.style.border = "2px solid tomato";
           box.style.borderColor = "tomato";
           console.log(box);
+          console.log(error);
         });
     }
   };

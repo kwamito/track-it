@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Sidebar from "./components/sidebar/sideBar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/home/Home";
+import ProjectsList from "./components/projects_home/projectsHome";
+import Login from "./components/login_register/login";
+import Register from "./components/login_register/register";
+import Logout from "./components/login_register/logout";
+import ProjectDetail from "./components/projects_home/projectDetail";
+import TasksList from "./components/tasks/tasksList";
+import UserHomePage from "./components/homepage/userHomepage";
+import AddMemberModal from "./components/modals/addMember";
+import LineGraph from "./components/graphbox/charts";
+import Documentation from "./components/docPage/projectDoc";
+import ContributorsList from "./components/contributors/contributorsList";
+import AllTeams from "./components/team_card/allTeams";
+import AcceptProject from "./components/projects_home/acceptProject";
+import CreateProject from "./components/projects_home/createProject";
+import AllExpenses from "./components/projects_home/allExpenses";
+import TeamDetail from "./components/team_card/teamDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/projects" component={ProjectsList} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/register" component={Register} />
+        <Route path="/logout" component={Logout} exact />
+        <Route path="/project/:id" component={ProjectDetail} exact />
+        <Route path="/project/:id/tasks" component={TasksList} exact />
+        <Route path="/home" component={UserHomePage} exact />
+        <Route path="/modal" component={AddMemberModal} exact />
+        <Route path="/graph" component={LineGraph} exact />
+        <Route path="/docs/:id" component={Documentation} exact />
+        <Route path="/contributors/:id" component={ContributorsList} exact />
+        <Route path="/teams/:id" component={AllTeams} exact />
+        <Route path="/accept/:id" component={AcceptProject} exact />
+        <Route path="/create" component={CreateProject} exact />
+        <Route path="/expenses/:id" component={AllExpenses} exact />
+        <Route path="/team/:project_id/:team_id" component={TeamDetail} exact />
+      </Switch>
+    </Router>
   );
 }
 

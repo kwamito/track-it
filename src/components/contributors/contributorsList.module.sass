@@ -1,0 +1,47 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.list-table
+    width: 100%
+    border-collapse: collapse
+
+.head
+    text-align: left
+
+.eles
+    text-align: left
+
+th
+    padding: 6px
+    font-weight: bolder
+    background-color: wheat
+
+td
+    margin-bottom: 2px
+    padding: 10px
+    background-color: white
+
+tr
+    border-radius: 10px
+
+th
+    border: none
+    border-bottom-width: 2px
+
+table
+    overflow-x: auto
+    margin-top: 30px
+    border-collapse: collapse
+    border-spacing: 0
+
+.main
+    margin-left: 220px
+    margin-right: 20px
+
+.delete
+    width: 50%
+    border: 1px  solid red
+    background-color: white
+    border-radius: 3px
+    &:hover
+        background-color: red

@@ -129,7 +129,10 @@ function Sidebar(props: any) {
             </div>
           </Link>
 
-          <Link to="/" className={style["sec-links"]}>
+          <Link
+            to={`/contributors/${props.projectId}`}
+            className={style["sec-links"]}
+          >
             <div className={style["elements"]}>
               <span className="material-icons ml-4 mr-2 icon">
                 people_outline
@@ -159,14 +162,14 @@ function Sidebar(props: any) {
             </div>
           </Link>
 
-          <Link to="/" className={style["sec-links"]}>
+          <Link to={`/docs/${props.projectId}`} className={style["sec-links"]}>
             <div className={`${style["elements"]}`}>
               <span className="material-icons ml-4 mr-2 icon">notes</span>
               Documentation
             </div>
           </Link>
 
-          <Link to="/" className={style["sec-links"]}>
+          <Link to={`/teams/${props.projectId}`} className={style["sec-links"]}>
             <div className={style["elements"]}>
               <span className="material-icons ml-4 mr-2 icon">groups</span>
               Teams
@@ -188,6 +191,41 @@ function Sidebar(props: any) {
                 calendar_today
               </span>
               Project Tasks
+            </div>
+          </Link>
+
+          <Link to={`/create`} className={style["sec-links"]}>
+            <div className={style["elements"]}>
+              <span className="material-icons ml-4 mr-2 icon">add_task</span>
+              Create a project
+            </div>
+          </Link>
+          <Link
+            to={`/expenses/${props.projectId}`}
+            className={style["sec-links"]}
+          >
+            <div className={style["elements"]}>
+              <span className="material-icons ml-4 mr-2 icon">
+                attach_money
+              </span>
+              Expenses
+            </div>
+          </Link>
+
+          <Link
+            to={`/expenses/${props.projectId}`}
+            className={style["sec-links"]}
+          >
+            <div className={style["elements"]}>
+              <span className="material-icons ml-4 mr-2 icon">history</span>
+              Budget History
+            </div>
+          </Link>
+
+          <Link to={`/projects`} className={style["sec-links"]}>
+            <div className={style["elements"]}>
+              <span className="material-icons icon">reorder</span>
+              All projects
             </div>
           </Link>
 

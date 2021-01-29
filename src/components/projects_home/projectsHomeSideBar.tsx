@@ -107,7 +107,7 @@ function ProjectsSidebar() {
         </div>
 
         <div className={style["nav-items"]}>
-          <Link to="/" className={style["sec-links"]}>
+          <Link to="/projects" className={style["sec-links"]}>
             <div className={style["elements"]}>
               <span className="material-icons ml-4 mr-2 icon">assessment</span>
               All Projects
@@ -118,6 +118,13 @@ function ProjectsSidebar() {
             <div className={style["elements"]}>
               <span className="material-icons ml-4 mr-2 icon">extension</span>
               Activities
+            </div>
+          </Link>
+
+          <Link to={`/create`} className={style["sec-links"]}>
+            <div className={style["elements"]}>
+              <span className="material-icons ml-4 mr-2 icon">add_task</span>
+              Create a project
             </div>
           </Link>
 

@@ -1,0 +1,57 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.team-cards-container
+    margin-top: 50px
+    display: grid
+    grid-template-columns: auto auto
+
+@media screen and ( max-width: 500px )
+    .team-cards-container
+        grid-template-columns: auto
+
+.main
+    margin-left: 230px
+.project-detail-bottom-nav
+    display: none
+
+@media screen and ( max-width: 500px )
+
+    .project-detail-nav
+        display: none
+    .project-detail-bottom-nav
+        display: flex
+        z-index: 4000
+    .features-text
+        margin-bottom: 10px
+    .main
+        margin-left: 1px
+
+.overlay
+    z-index: 1010
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: black
+    opacity: 50%
+    display: none
+
+.add-member-container
+    z-index: 4000
+    position: fixed
+    left: 0
+    top: 0
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    display: none
+
+.radar-invite
+    display: flex
+
+.second-charts-container
+    display: flex
+    flex-direction: row
