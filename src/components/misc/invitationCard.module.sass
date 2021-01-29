@@ -1,0 +1,25 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.main-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
+
+.user-email
+    padding: 10px
+    border: none
+    border-radius: 6px
+    margin-bottom: 10px
+
+.submit-email
+    padding: 10px
+    border: none
+    border-radius: 6px
+    width: 50%
+    background-color: tint(orange,20%)
+
+.invite-warning
+    color: red

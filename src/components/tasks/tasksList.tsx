@@ -6,8 +6,10 @@ import Sidebar from "../sidebar/sideBar";
 import Navbar from "../navbar/navBar";
 import CreateTaskModal from "../modals/createTaskModal";
 import Strip from "../tasks/taskStrip";
+import { useSelector } from "react-redux";
 
 function TasksList({ match }: any) {
+  console.log(match);
   interface Tasks {
     name: string;
     description: string;
@@ -55,6 +57,8 @@ function TasksList({ match }: any) {
     overlay.style.display = "none";
   }
 
+  const taskState = useSelector((state: any) => state.state);
+
   return (
     <div>
       <Sidebar projectId={match.params.id} />
@@ -68,6 +72,8 @@ function TasksList({ match }: any) {
             <span className="material-icons">playlist_add</span>
           </button>
         </div>
+
+        <h2>Counter: {taskState}</h2>
 
         <div className={list_styles["tasks-cover"]}>
           {tasks.map((task) => {

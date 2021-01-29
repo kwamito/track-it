@@ -11,6 +11,9 @@ import "./all.sass";
 import TeamCard from "../team_card/teamCard";
 import CreateTaskModal from "../modals/createTaskModal";
 import AddMemberModal from "../modals/addMember";
+import BudgetChart from "../graphbox/budgetChart";
+import HomeRadar from "../graphbox/homeRadarChart";
+import InvitationCard from "../misc/invitationCard";
 
 function ProjectDetail({ match }: any): JSX.Element {
   interface Project {
@@ -39,6 +42,10 @@ function ProjectDetail({ match }: any): JSX.Element {
     budget_pure_number: any;
     teams: Array<any>;
     contributors_names: Array<any>;
+    all_tasks_count: any;
+    number_of_completed_tasks: any;
+    all_uncompleted_tasks: any;
+    weeks_tasks: Array<any>;
   }
 
   const [project, setProject] = useState<Project>();
@@ -58,15 +65,19 @@ function ProjectDetail({ match }: any): JSX.Element {
     });
   }
 
-  function openModal() {
-    console.log("dd");
-    let modal = document.getElementById("add-member-modal") as HTMLDivElement;
+  function openModal(e: React.MouseEvent) {
+    console.log(e.currentTarget.id);
+    let modal = document.getElementById(
+      `add-member-modal${e.currentTarget.id}`
+    ) as HTMLDivElement;
     let overlay = document.getElementById("overlay") as HTMLDivElement;
     modal.style.display = "block";
     overlay.style.display = "block";
   }
-  function closeModal() {
-    let modal = document.getElementById("add-member-modal") as HTMLDivElement;
+  function closeModal(e: React.MouseEvent) {
+    let modal = document.getElementById(
+      `add-member-modal${e.currentTarget.id}`
+    ) as HTMLDivElement;
     let overlay = document.getElementById("overlay") as HTMLDivElement;
     modal.style.display = "none";
     overlay.style.display = "none";
@@ -75,10 +86,6 @@ function ProjectDetail({ match }: any): JSX.Element {
   useEffect(() => {
     getProjectDetails();
   }, []);
-
-  // setTimeout(() => {
-  //   getProjectDetails();
-  // }, 20000);
 
   const ring1Style = {
     transform: "scale(1) rotate(-90deg)",
@@ -101,7 +108,7 @@ function ProjectDetail({ match }: any): JSX.Element {
   return (
     <div>
       <div>
-        <Sidebar projectId={project?.id} />
+        <Sidebar projectId={project?.id} data={project?.documentation} />
       </div>
 
       <div className={style["main"]}>
@@ -186,7 +193,32 @@ function ProjectDetail({ match }: any): JSX.Element {
         </div>
         <hr className={style["ruler-ring"]} />
         <h3 className={style["activity-heading"]}>Activity for the week</h3>
-        <GraphBox />
+        <GraphBox data={project?.weeks_tasks} />
+
+        <div className={style["second-charts-container"]}>
+          <BudgetChart
+            title={"Tasks"}
+            labels={["Completed", "Total", "Uncompleted"]}
+            data={[
+              project?.number_of_completed_tasks,
+              project?.all_tasks_count,
+              project?.all_uncompleted_tasks,
+            ]}
+            type="pie"
+            colors={["orange", "yellow", "green"]}
+          />
+          <BudgetChart
+            title={"Budget"}
+            labels={["Budget", "TotalExpenses"]}
+            data={[project?.budget_percent, project?.total_expenditure]}
+            type="pie"
+            colors={["red", "green"]}
+          />
+        </div>
+        <div className={style["radar-invite"]}>
+          <HomeRadar />
+          <InvitationCard id={project?.id} />
+        </div>
         <h3 className={style["features-text"]}>Features completed this week</h3>
         <div className={style["feats"]}>
           {/* {nums.map(num => {
@@ -207,6 +239,8 @@ function ProjectDetail({ match }: any): JSX.Element {
                 cost={feature.cost}
                 priority={feature.priority}
                 documentation={feature.documentation}
+                id={feature.id}
+                approved={feature.approved}
               />
             );
           })}
@@ -228,20 +262,21 @@ function ProjectDetail({ match }: any): JSX.Element {
               <div>
                 <TeamCard
                   id={team.id}
+                  projectId={match.params.id}
                   open={openModal}
                   name={team.name}
                   members={team.contributors_names}
                 />
 
                 <div
-                  id="add-member-modal"
+                  id={`add-member-modal${team.id}`}
                   className={style["add-member-container"]}
                 >
-                  {console.log(team.id)}
                   <AddMemberModal
                     team_id={team.id}
                     close={closeModal}
                     id={match.params.id}
+                    class_id={team.id}
                   />
                 </div>
                 <div

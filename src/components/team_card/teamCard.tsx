@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import cards_style from "./teamCard.module.sass";
+import { Link } from "react-router-dom";
 
 function TeamCard(props: any) {
   let hasMembers;
@@ -10,6 +11,7 @@ function TeamCard(props: any) {
     hasMembers = false;
     console.log(hasMembers);
   }
+  console.log(props.members.length);
   // let theme = window.localStorage.getItem("theme");
   // if (theme === "dark") {
   //   let card = document.getElementsByClassName(cards_style["team-card-body"]);
@@ -36,7 +38,7 @@ function TeamCard(props: any) {
     // window.addEventListener("storage", (e) => {
     //   console.log("fjdfj");
   });
-  console.log(props.id);
+  console.log(props);
   return (
     <div className={cards_style["team-card-body"]}>
       <div className={cards_style["team-card-head"]}>
@@ -45,7 +47,12 @@ function TeamCard(props: any) {
           <div className={cards_style["team-avatar"]}>
             {props.name.slice(0, 1).toUpperCase()}
           </div>
-          <div className={cards_style["team-name"]}>{props.name}</div>
+          <Link
+            className={cards_style["team-name"]}
+            to={`/team/${props.projectId}/${props.id}`}
+          >
+            {props.name}
+          </Link>
         </div>
         <div className={cards_style["add-members-button-container"]}>
           <button
@@ -80,7 +87,9 @@ function TeamCard(props: any) {
                 <div className={cards_style["progress-group-flex"]}>
                   <div className={cards_style["progress-bars"]}>
                     <div className={cards_style["member-back"]}>
-                      <div className={cards_style["member-progress"]}></div>
+                      <div className={cards_style["member-progress"]}>
+                        <div className={cards_style["op-an"]}></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -95,7 +104,7 @@ function TeamCard(props: any) {
         </div>
       )}
 
-      {hasMembers || props.members.length >= 4 ? (
+      {props.members.length >= 4 ? (
         <div className={cards_style["more"]}>
           <span className="material-icons">expand_more</span>
         </div>

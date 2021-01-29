@@ -154,6 +154,8 @@ circle
 @media screen and ( max-width: 500px )
     .team-cards-container
         grid-template-columns: auto
+    .second-charts-container
+        flex-direction: column
 
 .overlay
     z-index: 1010
@@ -176,3 +178,17 @@ circle
     display: flex
     justify-content: center
     display: none
+
+.radar-invite
+    display: flex
+
+.second-charts-container
+    display: flex
+    flex-direction: row
+
+@media screen and ( max-width: 500px )
+    .second-charts-container
+        flex-direction: column
+
+    .radar-invite
+        flex-direction: column

@@ -1,36 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import React, { useContext } from "react";
 import App from "./App";
-import Sidebar from "./components/sidebar/sideBar";
+import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/home/Home";
-import ProjectsList from "./components/projects_home/projectsHome";
-import Login from "./components/login_register/login";
-import Register from "./components/login_register/register";
-import Logout from "./components/login_register/logout";
-import ProjectDetail from "./components/projects_home/projectDetail";
-import TasksList from "./components/tasks/tasksList";
-import UserHomePage from "./components/homepage/userHomepage";
-import AddMemberModal from "./components/modals/addMember";
+import { createStore, combineReducers } from "redux";
+import { Provider } from "react-redux";
+import reviewReducer from "./reducers/reviewReducer";
+import allReducers from "./reducers/";
+import { composeWithDevTools } from "redux-devtools-extension";
+// import "./assets/main.css";
+// import "./tailwind.output.css";
+
+const store = createStore(allReducers, composeWithDevTools());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/projects" component={ProjectsList} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/register" component={Register} />
-        <Route path="/logout" component={Logout} exact />
-        <Route path="/project/:id" component={ProjectDetail} exact />
-        <Route path="/project/:id/tasks" component={TasksList} exact />
-        <Route path="/home" component={UserHomePage} exact />
-        <Route path="/modal" component={AddMemberModal} exact />
-      </Switch>
-    </Router>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 

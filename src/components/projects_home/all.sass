@@ -1,6 +1,10 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
 .dark-body
     background-color: #0D1117
     color: white
+
 .project-card-body
     background-color: #1B1B1B
 
@@ -18,10 +22,10 @@
     background-color: #1f1f1f
     color: white
 
-@function tint($color,$percentage)
-    @return mix(white,$color,$percentage)
-
 code
-    background-color: tint(grey,50%)
-    border-radius: 5px
-    padding: 5px
+    background-color: white
+    border: 1px solid tint(grey,50%)
+    border-radius: 2px
+    padding: 3px
+    color: red
+    margin-top: 20px

@@ -1,0 +1,24 @@
+@function tint($color,$percentage)
+    @return mix(white,$color,$percentage)
+
+.main
+    margin-left: 230px
+    margin-right: 20px
+
+.project-detail-bottom-nav
+    display: none
+
+.expense-container
+    display: grid
+    grid-template-columns: auto auto auto auto
+    margin-top: 30px
+
+@media screen and ( max-width: 500px )
+
+    .project-detail-nav
+        display: none
+    .project-detail-bottom-nav
+        display: flex
+        z-index: 4000
+    .main
+        margin-left: 1px

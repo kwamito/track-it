@@ -1,5 +1,9 @@
 import React from "react";
 import style from "./HomeCard.module.sass";
+import { createStore } from "redux";
+import { useSelector, useDispatch } from "react-redux";
+import { reviewFeature } from "/home/kwame/regs/taskit/src/actions";
+import axios from "axios";
 
 function HomeCard(props: any) {
   console.log(props);
@@ -18,6 +22,34 @@ function HomeCard(props: any) {
     justifyContent: "center",
     alignItems: "center",
   };
+  // const review = useSelector((state) => {
+  //   console.log(state);
+  //   return state;
+  // });
+
+  const dispatch = useDispatch();
+
+  function reviewFeat() {
+    let api = `http://127.0.0.1:8000/project/review-feature/${props.id}/`;
+
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.defaults.xsrfCookieName = "csrftoken";
+    const token = window.localStorage.getItem("token");
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    };
+
+    axios
+      .patch(api)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <div>
       <div className={style.card}>
@@ -60,7 +92,7 @@ function HomeCard(props: any) {
           </div>
 
           <div className={"share"}>
-            {props.merged ? (
+            {props.approved ? (
               <div className={style["tooltip"]}>
                 <span className={`material-icons ${style["link-icon"]}`}>
                   task_alt
@@ -90,14 +122,22 @@ function HomeCard(props: any) {
                   {props.merged ? (
                     <p>Reviewed and merged</p>
                   ) : (
-                    <p>Reviewed and pending merge</p>
+                    <p>Reviewed and pending approval</p>
                   )}{" "}
                 </span>
               </div>
             ) : (
               <div className={style["tooltip"]}>
                 <span className="material-icons">pending_actions</span>
-                <span className={style["tooltip-text"]}>Pending Review</span>
+                <span className={style["tooltip-text"]}>
+                  Pending Review{" "}
+                  <button
+                    onClick={() => reviewFeat()}
+                    className={style["review-button"]}
+                  >
+                    <span className="material-icons">remove_red_eye</span>
+                  </button>{" "}
+                </span>
               </div>
             )}
           </div>

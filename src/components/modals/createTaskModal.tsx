@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import task_modal_style from "./createTaskModal.module.sass";
 import axios from "axios";
+import { createNewTask } from "../../actions";
+import { useSelector, useDispatch } from "react-redux";
 
 function CreateTaskModal(props: any) {
   const [contributors, setContributors] = useState([]);
   const [ids, setId] = useState<any[]>([]);
+  console.log(props.id, "forme");
 
   function getContributors() {
     let api = `http://127.0.0.1:8000/project/contributors/${props.id}/accepted/`;
@@ -48,37 +51,45 @@ function CreateTaskModal(props: any) {
     console.log(taskObjects);
   };
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let api = `http://127.0.0.1:8000/project/create-task-list/${props.id}/`;
-    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-    axios.defaults.xsrfCookieName = "csrftoken";
-    const token = window.localStorage.getItem("token");
-    axios.defaults.headers = {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    };
+    // let api = `http://127.0.0.1:8000/project/create-task-list/${props.id}/`;
+    // axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    // axios.defaults.xsrfCookieName = "csrftoken";
+    // const token = window.localStorage.getItem("token");
+    // axios.defaults.headers = {
+    //   "Content-Type": "application/json",
+    //   Authorization: `Token ${token}`,
+    // };
 
     taskObjects.start_date = `${taskObjects.start_date} ${times.start_time}`;
     taskObjects.due_date = `${taskObjects.due_date} ${times.due_time}`;
-
-    ids.map((id: any) => {
-      taskObjects.assignees.push(parseInt(id));
-      console.log(parseInt(id));
-    });
-    axios
-      .post(api, taskObjects)
-      .then((response) => {
-        console.log(response);
-      })
-      .then((response) => {
-        let inputs = document.querySelectorAll("input");
-        inputs.forEach((input: HTMLInputElement) => {
-          input.value = "";
-        });
-        let text = document.getElementById("desc") as HTMLTextAreaElement;
-        text.value = "";
+    if (ids.length > 1) {
+      ids.map((id: any) => {
+        taskObjects.assignees.push(parseInt(id));
+        console.log(parseInt(id));
       });
+    }
+
+    let newObjects;
+    if (taskObjects.start_date || taskObjects.due_date == "") {
+      newObjects = {
+        name: taskObjects.name,
+        description: taskObjects.description,
+      };
+    } else {
+      newObjects = taskObjects;
+    }
+    dispatch(createNewTask(props.id, newObjects)) as Object;
+
+    let inputs = document.querySelectorAll("input");
+    inputs.forEach((input: HTMLInputElement) => {
+      input.value = "";
+    });
+    let text = document.getElementById("desc") as HTMLTextAreaElement;
+    text.value = "";
   };
 
   useEffect(() => {
