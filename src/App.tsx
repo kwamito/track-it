@@ -20,6 +20,9 @@ import AcceptProject from "./components/projects_home/acceptProject";
 import CreateProject from "./components/projects_home/createProject";
 import AllExpenses from "./components/projects_home/allExpenses";
 import TeamDetail from "./components/team_card/teamDetail";
+import BudgetHistory from "./components/projects_home/budgetHistory";
+import Features from "./components/projects_home/allFeatures";
+import CreateExpense from "./components/projects_home/createExpense";
 
 function App() {
   return (
@@ -42,7 +45,15 @@ function App() {
         <Route path="/create" component={CreateProject} exact />
         <Route path="/expenses/:id" component={AllExpenses} exact />
         <Route path="/team/:project_id/:team_id" component={TeamDetail} exact />
+        <Route path="/budget_history/:project_id" component={BudgetHistory} />
+        <Route
+          path="/features/:project_id"
+          name={"features"}
+          component={Features}
+          exact
+        />
       </Switch>
+      <Route path="/create-expense/:id" component={CreateExpense} exact />
     </Router>
   );
 }

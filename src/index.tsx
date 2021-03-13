@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import reviewReducer from "./reducers/reviewReducer";
 import allReducers from "./reducers/";
 import { composeWithDevTools } from "redux-devtools-extension";
+import Sidebar from "./components/sidebar/sideBar";
+
 // import "./assets/main.css";
 // import "./tailwind.output.css";
 

@@ -155,7 +155,9 @@ function AddMemberModal(props: any) {
               );
             })}
           </div>
-          <button onClick={handleGo}>Enter</button>
+          <button className={member_modal["enter-button"]} onClick={handleGo}>
+            Enter
+          </button>
         </div>
       </div>
     </div>

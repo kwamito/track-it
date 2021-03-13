@@ -9,10 +9,11 @@ import doc_style from "./projectDoc.module.sass";
 function Documentation(props: any) {
   console.log(props);
   const [doc, setDoc] = useState("");
+  const [editorText, setEditorText] = useState("");
   const [edit, setEdit] = useState(false);
   const handleChange = (e: React.FormEvent<HTMLPreElement>) => {
     console.log(e.currentTarget.innerText);
-    setDoc(e.currentTarget.innerText);
+    setEditorText(e.currentTarget.innerText);
   };
 
   const retrieveDoc = () => {
@@ -29,6 +30,7 @@ function Documentation(props: any) {
       .then((response) => {
         console.log(response.data);
         setDoc(response.data.documentation);
+        setEditorText(response.data.documentation);
       })
       .catch((response) => {
         console.log(response);
@@ -37,6 +39,29 @@ function Documentation(props: any) {
   useEffect(() => {
     retrieveDoc();
   }, []);
+
+  const updateDoc = () => {
+    let data = editorText;
+    let dat = { documentation: data };
+    console.log(dat);
+    let js = JSON.stringify(dat);
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.defaults.xsrfCookieName = "csrftoken";
+    const token = window.localStorage.getItem("token");
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    };
+    let api = `http://127.0.0.1:8000/project/pro/${props.match.params.id}/`;
+    axios
+      .patch(api, js)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  };
 
   function openEditor(e: React.MouseEvent) {
     if (edit) {
@@ -75,30 +100,38 @@ function Documentation(props: any) {
           data={props.match.params.id}
         />
       </div>
-      <div>
-        <Navbar />
-      </div>
-      <div className={doc_style["edit-button"]}>
-        <button
-          id={"edit-button"}
-          className={"bg-green-300"}
-          onClick={openEditor}
-        >
-          Edit
-        </button>
-      </div>
+      <div className={doc_style[""]}>
+        <div>
+          <Navbar />
+        </div>
+        <div className={doc_style["cont"]}>
+          <button onClick={updateDoc} className={doc_style["update-button"]}>
+            UPDATE
+          </button>
+        </div>
 
-      <div className={doc_style["main"]}>
-        <pre
-          contentEditable={true}
-          id={"editor"}
-          onInput={handleChange}
-          className={doc_style["editable"]}
-        >
-          {doc}
-        </pre>
-        <div id={"result"} className={doc_style["result"]}>
-          <ReactMarkdown children={doc}></ReactMarkdown>
+        <div className={doc_style["edit-button"]}>
+          <button
+            id={"edit-button"}
+            className={"bg-green-300"}
+            onClick={openEditor}
+          >
+            Edit
+          </button>
+        </div>
+
+        <div className={doc_style["main"]}>
+          <pre
+            contentEditable={true}
+            id={"editor"}
+            onInput={handleChange}
+            className={doc_style["editable"]}
+          >
+            {doc}
+          </pre>
+          <div id={"result"} className={doc_style["result"]}>
+            <ReactMarkdown children={editorText}></ReactMarkdown>
+          </div>
         </div>
       </div>
     </div>

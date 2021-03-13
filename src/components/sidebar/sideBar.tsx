@@ -141,7 +141,10 @@ function Sidebar(props: any) {
             </div>
           </Link>
 
-          <Link to="/" className={style["sec-links"]}>
+          <Link
+            to={`/features/${props.projectId}`}
+            className={style["sec-links"]}
+          >
             <div className={`${style["elements"]}`}>
               <span className="material-icons ml-4 mr-2 icon">extension</span>
               Features
@@ -213,7 +216,7 @@ function Sidebar(props: any) {
           </Link>
 
           <Link
-            to={`/expenses/${props.projectId}`}
+            to={`/budget_history/${props.projectId}`}
             className={style["sec-links"]}
           >
             <div className={style["elements"]}>

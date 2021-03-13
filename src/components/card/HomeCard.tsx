@@ -8,7 +8,11 @@ import axios from "axios";
 function HomeCard(props: any) {
   console.log(props);
   const backStyle = {
-    backgroundImage: `url(${props.owner_avatar})`,
+    backgroundImage: `url(${
+      props.full_url == false
+        ? `http://127.0.0.1:8000${props.owner_avatar}`
+        : props.owner_avatar
+    })`,
     backgroundSize: "cover",
     bacgroundPosition: "center",
     padding: "10px",
