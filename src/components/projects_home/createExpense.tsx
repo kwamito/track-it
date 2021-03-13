@@ -15,6 +15,18 @@ function CreateExpense(props: any) {
 
   function handleSubmit(e: any) {
     e.preventDefault();
+    const data = JSON.stringify(details);
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.defaults.xsrfCookieName = "csrftoken";
+    const token = window.localStorage.getItem("token");
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    };
+    let api = `http://127.0.0.1:8000/project/expense-create/${props.match.params.id}/`;
+    axios.post(api, data).then((response) => {
+      console.log(response);
+    });
   }
 
   function handleChange(e: any) {
@@ -41,10 +53,20 @@ function CreateExpense(props: any) {
         </div>
 
         <div className={expense_style["create-form"]}>
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <h2>Create your expense</h2>
-            <input type="number" placeholder="Amount" />
-            <input type="text" placeholder="Description" />
+            <input
+              onChange={handleChange}
+              type="number"
+              placeholder="Amount"
+              name="amount"
+            />
+            <input
+              onChange={handleChange}
+              type="text"
+              placeholder="Description"
+              name="description"
+            />
             <button>Submit</button>
           </form>
         </div>

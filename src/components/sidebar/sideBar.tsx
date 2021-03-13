@@ -165,6 +165,18 @@ function Sidebar(props: any) {
             </div>
           </Link>
 
+          <Link
+            to={`/create-expense/${props.projectId}`}
+            className={style["sec-links"]}
+          >
+            <div className={`${style["elements"]}`}>
+              <span className="material-icons ml-4 mr-2 icon">
+                add_circle_outline
+              </span>
+              Create expense
+            </div>
+          </Link>
+
           <Link to={`/docs/${props.projectId}`} className={style["sec-links"]}>
             <div className={`${style["elements"]}`}>
               <span className="material-icons ml-4 mr-2 icon">notes</span>
