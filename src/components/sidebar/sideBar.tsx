@@ -140,6 +140,15 @@ function Sidebar(props: any) {
               Contributors
             </div>
           </Link>
+          <Link
+            to={`/create-feature/${props.projectId}`}
+            className={style["sec-links"]}
+          >
+            <div className={`${style["elements"]}`}>
+              <span className="material-icons ml-4 mr-2 icon">create</span>
+              Create feature
+            </div>
+          </Link>
 
           <Link
             to={`/features/${props.projectId}`}

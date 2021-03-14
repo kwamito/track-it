@@ -23,6 +23,7 @@ import TeamDetail from "./components/team_card/teamDetail";
 import BudgetHistory from "./components/projects_home/budgetHistory";
 import Features from "./components/projects_home/allFeatures";
 import CreateExpense from "./components/projects_home/createExpense";
+import CreateFeature from "./components/projects_home/createFeature";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
         />
       </Switch>
       <Route path="/create-expense/:id" component={CreateExpense} exact />
+      <Route path="/create-feature/:id" component={CreateFeature} exact />
     </Router>
   );
 }
