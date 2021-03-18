@@ -1,21 +1,44 @@
 @function tint($color,$percentage)
     @return mix(white,$color,$percentage)
 
-.team-cards-container
-    margin-top: 50px
-    display: grid
-    grid-template-columns: auto auto
-
-@media screen and ( max-width: 500px )
-    .team-cards-container
-        grid-template-columns: auto
-
 .main
     margin-left: 230px
+
 .project-detail-bottom-nav
     display: none
 
-@media screen and ( max-width: 500px )
+.team-cards-container
+    display: grid
+    grid-gap: 1rem
+    max-width: 1200px
+    margin: 0 auto
+    margin-left: 20px
+    margin-right: 10px
+    margin-top: 50px
+
+@media screen and ( min-width: 600px )
+    .team-cards-container
+        grid-template-columns: repeat(2,1fr)
+        margin-left: 0
+
+@media screen and ( min-width: 1400px )
+    .team-cards-container
+        grid-template-columns: repeat(3,1fr)
+        max-width: 1400px
+        margin-left: 0
+
+@media screen and ( min-width: 2000px )
+    .team-cards-container
+        grid-template-columns: repeat(4,1fr)
+        max-width: 2000px
+        margin-left: 0
+
+@media screen and ( min-width: 3000px )
+    .team-cards-container
+        grid-template-columns: repeat(5,1fr)
+        max-width: 3000px
+
+@media screen and ( max-width: 600px )
 
     .project-detail-nav
         display: none
@@ -25,7 +48,10 @@
     .features-text
         margin-bottom: 10px
     .main
-        margin-left: 1px
+        margin-left: 0
+
+@media screen and ( max-width:200px  ) and (min-width:300px )
+    .main
 
 .overlay
     z-index: 1010

@@ -55,7 +55,7 @@ function HomeCard(props: any) {
   }
 
   return (
-    <div>
+    <div style={{ margin: "auto" }}>
       <div className={style.card}>
         <div className={style.title}>
           {props.title.length > 15

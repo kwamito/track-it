@@ -216,7 +216,6 @@ function ProjectDetail({ match }: any): JSX.Element {
           />
         </div>
         <div className={style["radar-invite"]}>
-          <HomeRadar />
           <InvitationCard id={project?.id} />
         </div>
         <h3 className={style["features-text"]}>Features completed this week</h3>
@@ -259,7 +258,7 @@ function ProjectDetail({ match }: any): JSX.Element {
         <div className={style["team-cards-container"]}>
           {project?.teams.map((team) => {
             return (
-              <div>
+              <div style={{}}>
                 <TeamCard
                   id={team.id}
                   projectId={match.params.id}

@@ -3,7 +3,10 @@ import list_styles from "./tasksList.module.sass";
 import axios from "axios";
 import TaskCard from "../tasks/taskCard";
 import Sidebar from "../sidebar/sideBar";
+import style from "../projects_home/projectDetail.module.sass";
+import expense_style from "./createExpense.module.sass";
 import Navbar from "../navbar/navBar";
+import BottomNavBar from "../navbar/bottomNavBar";
 import CreateTaskModal from "../modals/createTaskModal";
 import Strip from "../tasks/taskStrip";
 import { useSelector } from "react-redux";
@@ -57,14 +60,19 @@ function TasksList({ match }: any) {
     overlay.style.display = "none";
   }
 
-  const taskState = useSelector((state: any) => state.state);
+  const numberOfTasks = tasks.length;
 
   return (
     <div>
-      <Sidebar projectId={match.params.id} />
-      <div className={list_styles["main"]}>
-        <div className={list_styles["tasks-nav"]}>
+      <div>
+        <Sidebar projectId={match.params.id} data={match.params.id} />
+      </div>
+      <div className={style["main"]}>
+        <div className={style["project-detail-nav"]}>
           <Navbar />
+        </div>
+        <div className={style["project-detail-bottom-nav"]}>
+          <BottomNavBar />
         </div>
 
         <div className={list_styles["add-task-button"]}>
@@ -73,7 +81,7 @@ function TasksList({ match }: any) {
           </button>
         </div>
 
-        <h2>Counter: {taskState}</h2>
+        <h2 style={{ textAlign: "center" }}>Number of task: {numberOfTasks}</h2>
 
         <div className={list_styles["tasks-cover"]}>
           {tasks.map((task) => {

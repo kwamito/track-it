@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import list_style from "./contributorsList.module.sass";
+import style from "../projects_home/projectDetail.module.sass";
 import Sidebar from "../sidebar/sideBar";
+import BottomNavBar from "../navbar/bottomNavBar";
 import Navbar from "../navbar/navBar";
 import axios from "axios";
 
@@ -35,10 +37,14 @@ function ContributorsList(props: any, match: any) {
         <Sidebar projectId={props.match.params.id} data={"dd"} />
       </div>
 
-      <div className={list_style["main"]}>
-        <div>
+      <div className={style["main"]}>
+        <div className={style["project-detail-nav"]}>
           <Navbar />
         </div>
+        <div className={style["project-detail-bottom-nav"]}>
+          <BottomNavBar />
+        </div>
+
         <table className={list_style["list-table"]}>
           <tr className={list_style["head"]}>
             <th>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TeamCard from "./teamCard";
+import style from "../projects_home/projectDetail.module.sass";
 import allteam_style from "./allTeams.module.sass";
 import Sidebar from "../sidebar/sideBar";
 import Navbar from "../navbar/navBar";
@@ -50,13 +51,16 @@ function AllTeams(props: any) {
       <div>
         <Sidebar projectId={props.match.params.id} />
       </div>
-      <div className={allteam_style["main"]}>
-        <div className={allteam_style["project-detail-nav"]}>
+      <div className={`${style["main"]} ${allteam_style["main"]}`}>
+        <div className={style["project-detail-nav"]}>
           <Navbar />
         </div>
-        <div className={allteam_style["project-detail-bottom-nav"]}>
+        <div className={style["project-detail-bottom-nav"]}>
           <BottomNavBar />
         </div>
+        <h3 style={{ textAlign: "center" }}>
+          {teams.length <= 0 ? "No teams have been created yet" : ""}
+        </h3>
         <div className={allteam_style["team-cards-container"]}>
           {teams.map((team: any) => {
             return (

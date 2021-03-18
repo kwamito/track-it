@@ -1,24 +1,41 @@
 @function tint($color,$percentage)
     @return mix(white,$color,$percentage)
 
-.main
-    margin-left: 230px
-    margin-right: 20px
-
-.project-detail-bottom-nav
-    display: none
-
 .expense-container
     display: grid
-    grid-template-columns: auto auto auto auto
+    grid-gap: 1rem
+    margin: 0 auto
+    max-width: 1200px
+    align-items: center
+    margin-right: 5%
+    margin-left: 5%
     margin-top: 30px
+    margin-bottom: 20%
 
-@media screen and ( max-width: 500px )
+@media screen and ( min-width: 720px )
+    .expense-container
+        grid-template-columns: repeat(2,1fr)
+        max-width: 2000px
 
-    .project-detail-nav
-        display: none
-    .project-detail-bottom-nav
-        display: flex
-        z-index: 4000
-    .main
-        margin-left: 1px
+@media screen and ( min-width: 1200px )
+    .expense-container
+        grid-template-columns: repeat(3,1fr)
+        max-width: 1800px
+
+@media screen and ( min-width: 2000px )
+    .expense-container
+        grid-template-columns: repeat(4,1fr)
+        max-width: 2800px
+
+@media screen and ( min-width: 2900px )
+    .expense-container
+        grid-template-columns: repeat(5,1fr)
+        max-width: 3800px
+
+@media screen and ( min-width: 4200px )
+    .expense-container
+        grid-template-columns: repeat(7,1fr)
+        max-width: 4200px
+
+@media screen and ( max-width: 1500px )
+    .expense-container

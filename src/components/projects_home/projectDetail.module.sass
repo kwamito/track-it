@@ -77,6 +77,22 @@ circle
         width: 40%
         height: 40%
 
+@media screen and ( min-width: 600px )
+    .feats
+        grid-template-columns: repeat(2,1fr)
+
+@media screen and ( min-width: 900px )
+    .feats
+        grid-template-columns: repeat(3,1fr)
+
+@media screen and ( min-width: 2000px )
+    .feats
+        grid-template-columns: repeat(5,1fr)
+
+@media screen and ( min-width: 3000px )
+    .feats
+        grid-template-columns: repeat(6,1fr)
+
 .ring1 .tooltiptext
     visibility: hidden
     width: 120px
@@ -104,13 +120,15 @@ circle
 
 .feats
     display: grid
-    order: 3
-    justify-content: space-evenly
-
-    margin-top: 20px
-    margin-right: 10px
-    grid-template-columns: auto auto auto
-    margin-bottom: 20px
+    // order: 3
+    justify-content: center
+    // margin-top: 20px
+    // margin-right: 10px
+    // grid-template-columns: auto auto auto
+    // margin-bottom: 20px
+    max-width: 1200px
+    margin: 0 auto
+    grid-gap: 1rem
 
     //justify-content: space-around
 
@@ -127,8 +145,8 @@ circle
 
 @media screen and ( max-width: 500px )
     .feats
-        grid-template-columns: auto auto
-        transform: scale(.8)
+        // grid-template-columns: auto auto
+        // transform: scale(.8)
 
     .project-detail-nav
         display: none
@@ -149,11 +167,37 @@ circle
 
 .team-cards-container
     display: grid
-    grid-template-columns: auto auto
+    grid-gap: 1rem
+    max-width: 1200px
+    margin: 0 auto
+    margin-left: 20px
+    margin-right: 10px
+    margin-top: 50px
+
+@media screen and ( min-width: 600px )
+    .team-cards-container
+        grid-template-columns: repeat(2,1fr)
+        margin-left: 0
+
+@media screen and ( min-width: 1400px )
+    .team-cards-container
+        grid-template-columns: repeat(3,1fr)
+        max-width: 1400px
+        margin-left: 0
+
+@media screen and ( min-width: 2000px )
+    .team-cards-container
+        grid-template-columns: repeat(4,1fr)
+        max-width: 2000px
+        margin-left: 0
+
+@media screen and ( min-width: 2800px )
+    .team-cards-container
+        grid-template-columns: repeat(5,1fr)
+        max-width: 5000px
 
 @media screen and ( max-width: 500px )
-    .team-cards-container
-        grid-template-columns: auto
+
     .second-charts-container
         flex-direction: column
 

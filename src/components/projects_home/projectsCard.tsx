@@ -92,7 +92,6 @@ function ProjectCard(props: any) {
   const widthStyle = {
     width: `${props.tasksCompleted}%`,
   };
-  console.log(props);
   return (
     <div>
       <Link style={linkStyle} to={`project/${props.id}`}>
@@ -114,10 +113,6 @@ function ProjectCard(props: any) {
             </div>
           </div>
           <div className={style["progress-priority"]}>
-            <button className={style["select-progress"]}>
-              SELECT PROGRESS
-            </button>
-            {/* {props.priority === "M" ? "" : "ldfj"} */}
             {renderPriority(props.priority)}
           </div>
           <div className={style["tasks-done"]}>

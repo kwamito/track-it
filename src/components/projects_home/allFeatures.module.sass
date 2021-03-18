@@ -1,23 +1,12 @@
-@function tint($color,$percentage)
-    @return mix(white,$color,$percentage)
-
-.main
-    margin-left: 230px
-
-@media screen and ( max-width: 500px )
-    .features-text
-        margin-bottom: 10px
-    .main
-        margin-left: 1px
-
 .container
     display: grid
     // grid-template-columns: auto auto auto
     max-width: 1200px
-    margin: 0 auto
+    margin: auto
     grid-gap: 1rem
     margin-top: 50px
     margin-right: 2%
+    justify-content: center
 
 .history-card
     padding: 10px
@@ -35,9 +24,9 @@
     .container
         grid-template-columns: repeat(3,1fr)
 
-@media screen and ( min-width: 1500px )
+@media screen and ( min-width: 1300px )
     .container
-        grid-template-columns: repeat(4,1fr)
+        grid-template-columns: repeat(3,1fr)
         max-width: 2000px
 
 @media screen and ( min-width: 2200px )
@@ -47,7 +36,7 @@
 
 @media screen and ( min-width: 3000px )
     .container
-        grid-template-columns: repeat(6,1fr)
+        grid-template-columns: repeat(8,1fr)
         max-width: 4000px
 
 @media screen and ( max-width: 600px )

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import main_style from "./projectDetail.module.sass";
 import history_styles from "./budgetHistory.module.sass";
 import Sidebar from "../sidebar/sideBar";
 import Navbar from "../navbar/navBar";
@@ -54,13 +55,16 @@ function BudgetHistory(props: any) {
       <div>
         <Sidebar projectId={props.match.params.project_id} />
       </div>
-      <div className={history_styles["main"]}>
-        <div className={history_styles["project-detail-nav"]}>
+      <div className={main_style["main"]}>
+        <div className={main_style["project-detail-nav"]}>
           <Navbar />
         </div>
-        <div className={history_styles["project-detail-bottom-nav"]}>
+        <div className={main_style["project-detail-bottom-nav"]}>
           <BottomNavBar />
         </div>
+        <h3 style={{ textAlign: "center" }}>
+          {budgetHistory.length <= 0 ? "You have no budget history yet" : ""}
+        </h3>
         <div className={history_styles["container"]}>
           {budgetHistory.map((history: any) => {
             return (

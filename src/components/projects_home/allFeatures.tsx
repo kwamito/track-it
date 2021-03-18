@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import history_styles from "./budgetHistory.module.sass";
+import main_styles from "./projectDetail.module.sass";
+import grid_styles from "./allFeatures.module.sass";
 import Sidebar from "../sidebar/sideBar";
 import Navbar from "../navbar/navBar";
 import BottomNavBar from "../navbar/bottomNavBar";
@@ -54,14 +55,17 @@ function Features(props: any) {
       <div>
         <Sidebar projectId={props.match.params.project_id} />
       </div>
-      <div className={history_styles["main"]}>
-        <div className={history_styles["project-detail-nav"]}>
+      <div className={main_styles["main"]}>
+        <div className={main_styles["project-detail-nav"]}>
           <Navbar />
         </div>
-        <div className={history_styles["project-detail-bottom-nav"]}>
+        <div className={main_styles["project-detail-bottom-nav"]}>
           <BottomNavBar />
         </div>
-        <div className={history_styles["container"]}>
+        <h3 style={{ textAlign: "center" }}>
+          {features.length <= 0 ? "No features have been created yet" : ""}
+        </h3>
+        <div className={grid_styles["container"]}>
           {features.map((feature: any) => {
             return (
               <HomeCard

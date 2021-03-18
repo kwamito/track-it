@@ -6,24 +6,9 @@ function TeamCard(props: any) {
   let hasMembers;
   if (props.members.length > 0) {
     hasMembers = true;
-    console.log(hasMembers);
   } else {
     hasMembers = false;
-    console.log(hasMembers);
   }
-  console.log(props.members.length);
-  // let theme = window.localStorage.getItem("theme");
-  // if (theme === "dark") {
-  //   let card = document.getElementsByClassName(cards_style["team-card-body"]);
-  //   for (let i = 0; i < card.length; i++) {
-  //     card[i].classList.add("darko");
-  //   }
-  // } else {
-  //   let card = document.getElementsByClassName(cards_style["team-card-body"]);
-  //   for (let i = 0; i < card.length; i++) {
-  //     card[i].classList.remove("darko");
-  //   }
-  // }
 
   useEffect(() => {
     //   if (theme == "dark") {

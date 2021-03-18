@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "../sidebar/sideBar";
+import main_style from "./projectDetail.module.sass";
 import Navbar from "../navbar/navBar";
 import BottomNavBar from "../navbar/bottomNavBar";
 import expense_style from "./allExpenses.module.sass";
@@ -19,9 +20,6 @@ function AllExpenses(props: any) {
     };
     let api = `http://127.0.0.1:8000/project/expense-create/${props.match.params.id}/`;
     axios.get(api).then((response) => {
-      console.log(response.data[0].total_expenses);
-      setTotal(response.data[0].total_expenses);
-
       setExpenses(response.data);
     });
   };
@@ -35,14 +33,14 @@ function AllExpenses(props: any) {
       <div>
         <Sidebar projectId={props.match.params.id} />
       </div>
-      <div className={expense_style["main"]}>
-        <div className={expense_style["project-detail-nav"]}>
+      <div className={main_style["main"]}>
+        <div className={main_style["project-detail-nav"]}>
           <Navbar />
         </div>
-        <div className={expense_style["project-detail-bottom-nav"]}>
+        <div className={main_style["project-detail-bottom-nav"]}>
           <BottomNavBar />
         </div>
-        <h2
+        {/* <h2
           style={{
             margin: "0 auto",
             textAlign: "center",
@@ -54,9 +52,11 @@ function AllExpenses(props: any) {
         >
           Expenses
           <span className="material-icons ml-4 mr-2 icon">attach_money</span>
-        </h2>
-        <h2 style={{ textAlign: "center" }}>${total}</h2>
-
+        </h2> */}
+        {/* <h2 style={{ textAlign: "center" }}>${total}</h2> */}
+        <h3 style={{ textAlign: "center" }}>
+          {expenses.length <= 0 ? "No expenses have been created yet" : ""}
+        </h3>
         <div className={expense_style["expense-container"]}>
           {expenses.map((expense: any) => {
             return (
